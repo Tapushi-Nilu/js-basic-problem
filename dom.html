@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+<header>
+    <h1>Bangladesh</h1>
+</header>
+<main>
+    <section>
+        <ul id="blog-list">
+            <li>Blog-1</li>
+            <li>Blog-1</li>
+            <li>Blog-1</li>
+            <li>Blog-1</li>
+        </ul>
+
+
+
+        <article class="box">
+            <h1>My awesome Blog-1
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, voluptas?</p>
+            </h1>
+        </article>
+        <article class="box">
+            <h1>My awesome Blog-2
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero a tempora dignissimos non molestiae quam quis eos harum laboriosam! Voluptate!</p>
+            </h1>
+        </article>
+        <article>
+            <h1>My awesome Blog-3
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, nulla laudantium excepturi omnis quas eos ex est quis aliquam. Reprehenderit?</p>
+            </h1>
+        </article>
+    </section>
+</main>
+
+<script>
+
+   for (let i = 0; i <= 10; i++) {
+       //console.log(i);
+       
+   } 
+   const blogDetails = document.getElementsByTagName("p");
+   for (const p of blogDetails) {
+      //console.log(p .innerText);
+   }
+
+    const li = document.createElement('li');
+    li.innerText = 'blog-5';
+
+    const ul = document.getElementById('blog-list');
+    ul.appendChild(li);
+
+</script>
+</body>
+</html>

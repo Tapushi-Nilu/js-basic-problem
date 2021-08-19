@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding Comment</title>
+</head>
+<body>
+    <header>
+        <h1>Item list</h1>
+        <ul id="item">
+            <li class="header-item">item-1</li>
+            <li class="header-item">item-2</li>
+            <li class="header-item">item-3</li>
+        </ul>
+        <button id="add-btn">Add Item</button>
+        <button id="remove-btn">Remove Item</button>
+    </header>
+    <main>
+        <h1>Add your comment</h1>
+        <div id="comment-container">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur incidunt enim impedit quasi aut odio voluptatem? Fuga est magni labore.</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum qui, totam pariatur mollitia repudiandae hic eveniet itaque illo nemo dolor?</p>
+        </div>
+        <textarea name="" id="new-text" cols="60" rows="4"></textarea>
+        <br>
+        <button id="comment-submit">Post</button>
+    </main>
+    <script src="js/comment.js"></script>
+    <script>
+        //01. add event handller addEventListener
+        document.getElementById('comment-submit').addEventListener('click', function(){
+        //02.get new comment
+            const newComment = document.getElementById('new-text');
+            const userComment = newComment.value;
+         //03.createComment
+            const p = document.createElement('p');
+            p.innerText = newComment.value;
+            //04.append comment container
+            const commentContainer = document.getElementById('comment-container');
+            commentContainer.appendChild(p);
+            //05.Clean the commentBox
+            newComment.value = '';
+        })
+
+        document.getElementById('add-btn').addEventListener('click', function(){
+            const li = document.createElement('li');
+        li.innerText = 'new item';
+        const items = document.getElementById('item');
+        items.appendChild(li);
+        })
+
+
+        document.getElementById('remove-btn').addEventListener('click', function(){
+            const remove = document.getElementsByClassName('header-item');
+            remove.style.display = 'none';
+        })
+
+    </script>
+</body>
+</html>
