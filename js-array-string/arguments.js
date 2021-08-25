@@ -9,4 +9,7 @@ function numbers(num1, num2) {
     
 }
 const sum = numbers(10, 20, 40, 10, 50, 100, 200);
-console.log(sum);
+// console.log(sum);
+
+
+

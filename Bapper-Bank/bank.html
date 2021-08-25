@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 class="text-7xl text-center mt-16">Let's Get Some <span class="text-purple-600">Mooooney!!!</span></h1>
+    </header>
+    <main>
+        <section class="w-3/4 mx-auto">
+            <div class="grid grid-cols-3 gap-x-8 py-16">
+                <div class="deposit bg-red-300 py-6 px-6 rounded-lg">
+                    <h1 class="text-3xl font-bold text-gray-600">Deposit</h1>
+                    <h3 class="text-5xl font-bold text-gray-600">$<span id="deposit-text">00</span></h3>
+                </div>
+                <div class="withdraw bg-green-200 py-6 px-6 rounded-lg">
+                    <h1 class="text-3xl font-bold text-gray-600">Withdraw</h1>
+                    <h3 class="text-5xl font-bold text-gray-600">$<span id="withdraw-text">00</span></h3>
+                </div>
+                <div class="balance bg-red-300 py-6 px-6 rounded-lg">
+                    <h1 class="text-3xl font-bold text-gray-600">Blance</h1>
+                    <h3 class="text-5xl font-bold text-gray-600">$<span id="balance-text">1200</span></h3>
+                </div>
+            </div>
+        </section>
+        <section class="w-1/2 mx-auto">
+            <div class="grid grid-cols-2 gap-x-8">
+                <div class="deposit bg-green-200 py-6 px-6 rounded-lg">
+                    <h1 class="text-2xl font-bold text-gray-600">Deposit Amount</h1>
+                    <input id="diposit-input" class="p-1 rounded mt-2" type="text" placeholder="$ Your Deposit Amount"> <br>
+                    <button id="submit-btn" class="bg-red-400 border-0 p-2 px-6 mt-2 rounded-lg">Submit</button>
+                </div>
+                <div class="deposit bg-green-200 py-6 px-6 rounded-lg">
+                    <h1 class="text-2xl font-bold text-gray-600">Withdraw Amount</h1>
+                    <input id="withdraw-input" class="p-1 rounded mt-2" type="text" placeholder="$ Your Withdraw Amount"> <br>
+                    <button id="submit-btn1" class="bg-red-400 border-0 p-2 px-6 mt-2 rounded-lg">Submit</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<script>
+    //Diposit 
+    document.getElementById('submit-btn').addEventListener('click', function(){
+        //get diposite input
+        const dipositInput = document.getElementById('diposit-input');
+        const dipositValue = dipositInput.value;
+        //get string to number
+        const dipositAmount = parseFloat(dipositValue);
+        //send to deposit 
+        const dipositText = document.getElementById('deposit-text');
+        const dipositBalance = dipositText.innerText;
+        //get string to number
+        const dipositTotalAmount = parseFloat(dipositBalance);
+        const totalAmount = dipositAmount + dipositTotalAmount;
+        dipositText.innerText = totalAmount;
+
+        //adding to balance
+        const update = document.getElementById('balance-text');
+        const updateBalance = update.innerText;
+        const updateBalanceAmount = parseFloat(updateBalance);
+        const totalBlance = updateBalanceAmount + dipositAmount;
+        update.innerText = totalBlance;
+        //clear input
+        dipositInput.value = '';
+    })
+    //Withdraw 
+    document.getElementById('submit-btn1').addEventListener('click', function(){
+        //take input of withdraw
+        const withdrawInput = document.getElementById('withdraw-input');
+        const withdrawValue = withdrawInput.value;
+        const withdrawBlance = parseFloat(withdrawValue);
+
+        //send input balance in withdraw
+        const getWithdraw = document.getElementById('withdraw-text');
+        const getWithdrawValue = getWithdraw.innerText;
+        const getWithdrawBalance = parseFloat(getWithdrawValue);
+        const withdrawTotal = withdrawBlance + getWithdrawBalance;
+        getWithdraw.innerText = withdrawTotal;
+
+        //balance after withdraw
+        const updateWithdraw = document.getElementById('balance-text');
+        const updateWithdrawValue = updateWithdraw.innerText;
+        const updateWithdrawBalance = parseFloat(updateWithdrawValue);
+        const updateWithdrawTotal = updateWithdrawBalance - withdrawBlance;
+        updateWithdraw.innerText = updateWithdrawTotal;
+
+        withdrawInput.value = '';
+    })
+
+</script>
+
+</body>
+</html>

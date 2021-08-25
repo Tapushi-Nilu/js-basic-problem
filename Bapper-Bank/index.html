@@ -15,11 +15,33 @@
         <section class="bg-red-500 w-3/4 mt-8 mx-auto p-16">
             <h2 class="text-5xl text-white mb-2">Please Login</h2>
             <div>
-                <input class="w-3/4 border border-yellow-400 p-2 mt-2 rounded" type="text" placeholder="Type your email"> <br>
-                <input class="w-3/4 border border-yellow-400 p-2 mt-2 rounded" type="password" name="" id=""> <br>
-                <button class="px-4 py-2 mt-2 bg-yellow-500 rounded uppercase">submit</button>
+                <input id="user-email" class="w-3/4 border border-yellow-400 p-2 mt-2 rounded" type="text" placeholder="Type your email"> <br>
+                <input id="user-password" class="w-3/4 border border-yellow-400 p-2 mt-2 rounded" type="password" name="" id="" placeholder="password"> <br>
+                <button id="submit-btn" class="px-4 py-2 mt-2 bg-yellow-500 rounded uppercase" >submit</button>
             </div>
         </section>
     </main>
+
+
+
+<script>
+    document.getElementById('submit-btn').addEventListener('click', function(){
+        //get email
+        const emailField = document.getElementById('user-email');
+        const userEmail = emailField.value;
+        //get password
+        const passwordlField = document.getElementById('user-password');
+        const userPassword = passwordlField.value;
+    
+        //condition
+        if(userEmail == 'abc@bb.com' && userPassword == 'email'){
+            window.location.href = 'bank.html';
+        }  
+        else{
+          alert('You are Wrong');
+        }
+    })
+</script>
+
 </body>
 </html>
